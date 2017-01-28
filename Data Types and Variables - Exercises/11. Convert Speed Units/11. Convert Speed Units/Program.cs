@@ -10,18 +10,21 @@ namespace _11.Convert_Speed_Units
     {
         static void Main(string[] args)
         {
-            decimal distanceInMeters = decimal.Parse(Console.ReadLine());
-            decimal distanceInKm = (decimal)distanceInMeters / 1000;
-            decimal distanceInMiles = (decimal)distanceInMeters / 1609;
-            int hours = int.Parse(Console.ReadLine());
-            int minutes = int.Parse(Console.ReadLine());
-            int seconds = int.Parse(Console.ReadLine());
-            
-            decimal totalInSeconds = (decimal)hours * 3600 + minutes * 60 + seconds;
-            decimal metersPerSecond = Math.Ceiling(distanceInMeters / totalInSeconds);
-            decimal kilometersPerHour = Math.Ceiling(metersPerSecond * 3.6M);
-            decimal milesPerHour = Math.Ceiling(kilometersPerHour * 0.621371192M);
-            Console.WriteLine("{0:f6}\n{1:f6}\n{2:f6}", metersPerSecond, kilometersPerHour, milesPerHour);
+            float distanceInMeters = float.Parse(Console.ReadLine());
+            float distanceInKm = distanceInMeters / 1000;
+            float distanceInMiles = distanceInMeters / 1609;
+            float hours = float.Parse(Console.ReadLine());
+            float minutes = float.Parse(Console.ReadLine());
+            float seconds = float.Parse(Console.ReadLine());
+
+            float totalInSeconds = hours * 3600 + minutes * 60 + seconds;
+            float metersPerSecond = distanceInMeters / totalInSeconds;
+            float totalInHours = totalInSeconds / 3600;
+            float kilometersPerHour = distanceInKm / totalInHours;
+            float milesPerHour = distanceInMiles / totalInHours;
+            Console.WriteLine(metersPerSecond);
+            Console.WriteLine(kilometersPerHour);
+            Console.WriteLine(milesPerHour);
             
 
         }
